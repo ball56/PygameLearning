@@ -1,17 +1,17 @@
 import pygame as pg
 from random import randint
 pg.font.init()
-pg.mixer.init()
+#pg.mixer.init()
 
 
-def player():
-    screen.blit(cars_img[0], (player_x - int(car_x / 2), player_y - int(car_y / 2)))
+#def player():
+#    screen.blit(cars_img[0], (player_x - int(car_x / 2), player_y - int(car_y / 2)))
 
 
-def enemies():
-    screen.blit(cars_img[1], (enemies_x - 115, enemy1_y))
-    screen.blit(cars_img[2], (enemies_x - int(car_x / 2), enemy2_y))
-    screen.blit(cars_img[3], (enemies_x + 60, enemy3_y))
+#def enemies():
+#    screen.blit(cars_img[1], (enemies_x - 115, enemy1_y))
+#    screen.blit(cars_img[2], (enemies_x - int(car_x / 2), enemy2_y))
+#    screen.blit(cars_img[3], (enemies_x + 60, enemy3_y))
 
 
 def text(txt_msg, txt_color, txt_size, txt_x, txt_y):
@@ -45,20 +45,20 @@ enemy3_y = randint(-height, -car_y)
 enemies_spd = 0
 
 'IMAGES'
-bg = pg.image.load('assets/images/background/Road.png').convert()
-bg = pg.transform.scale(bg, (width, height))
+#bg = pg.image.load('assets/images/background/Road.png').convert()
+#bg = pg.transform.scale(bg, (width, height))
 bg_y = 0
-cars_img = [pg.image.load('assets/images/sprites/Player_Car.png'),
-            pg.image.load('assets/images/sprites/Enemy1_Car.png'),
-            pg.image.load('assets/images/sprites/Enemy2_Car.png'),
-            pg.image.load('assets/images/sprites/Enemy3_Car.png')]
+#cars_img = [pg.image.load('assets/images/sprites/Player_Car.png'),
+#            pg.image.load('assets/images/sprites/Enemy1_Car.png'),
+#            pg.image.load('assets/images/sprites/Enemy2_Car.png'),
+#            pg.image.load('assets/images/sprites/Enemy3_Car.png')]
 
 'MUSIC'
-pg.mixer_music.load('assets/sounds/music/Chillwave_Nightdrive.mp3')
-pg.mixer_music.play(-1)
+#pg.mixer_music.load('assets/sounds/music/Chillwave_Nightdrive.mp3')
+#pg.mixer_music.play(-1)
 
 'SOUND EFFECT'
-car_collision = pg.mixer.Sound('assets/sounds/sound_effects/Car_Collision.wav')
+#car_collision = pg.mixer.Sound('assets/sounds/sound_effects/Car_Collision.wav')
 
 clock = pg.time.Clock()
 score = 1
@@ -66,14 +66,14 @@ score_spd = 0
 whileFlag = True
 while whileFlag:
     clock.tick(60)
-    bg_y1 = bg_y % bg.get_height()
+    #bg_y1 = bg_y % bg.get_height()
     bg_y += 3
-    screen.blit(bg, (0, bg_y1 - bg.get_height()))
-    if bg_y1 < height:
-        screen.blit(bg, (0, bg_y1))
+    #screen.blit(bg, (0, bg_y1 - bg.get_height()))
+    #if bg_y1 < height:
+    #    screen.blit(bg, (0, bg_y1))
 
-    player()
-    enemies()
+  #  player()
+  #  enemies()
 
     pg.draw.rect(screen, white, (0, 0, 54, 20))
     text('S: ' + str(score), black, 15, 0, 0)
@@ -110,16 +110,16 @@ while whileFlag:
 
     'COLLISION'
     if player_x - 40 > enemies_x and player_y - 140 < enemy3_y:
-        car_collision.play()
+        #car_collision.play()
         score -= 10
         enemy3_y = randint(-1750, -1250)
     if player_x + 40 < enemies_x and player_y - 140 < enemy1_y:
-        car_collision.play()
+        #car_collision.play()
         score -= 10
         enemy1_y = randint(-2500, - 2000)
     if player_x - 40 < enemies_x + 10 and player_y - 140 < enemy2_y:
         if player_x + 40 > enemies_x - 10 and player_y - 140 < enemy2_y:
-            car_collision.play()
+            #car_collision.play()
             score -= 10
             enemy2_y = randint(-1000, -750)
 
